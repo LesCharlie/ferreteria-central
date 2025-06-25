@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ferretería Central</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+
+  <header class="header-animado">
+    <div class="fondo-letras" id="letras-header"></div>
+    <a href="index.html">
+      <img src="imagenes/logo-ferreteria.png" alt="Ferretería Central" class="logo" />
+    </a>
+  </header>
+
+  <section id="herramientas" class="productos">
+    <h2>Tipos de Herramientas</h2>
+    <div class="carrusel-categorias">
+  <button class="flecha izquierda" onclick="moverCarrusel(-1)">&#10094;</button>
+
+  <div class="contenedor-categorias" id="contenedorCategorias">
+    <div class="categoria">
+      <img src="imagenes/manuales.jpg" alt="Manuales">
+      <h4>Manuales</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/electricas.jpg" alt="Eléctricas">
+      <h4>Eléctricas</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/medicion.jpg" alt="Medición">
+      <h4>Medición</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/utiles.jpg" alt="Útiles">
+      <h4>Útiles</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/seguridad.jpg" alt="Seguridad">
+      <h4>Seguridad</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/taller.jpg" alt="Taller">
+      <h4>Taller</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/sujecion.jpg" alt="Taller">
+      <h4>Sujecion</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/mantenimiento.jpg" alt="Taller">
+      <h4>Mantenimiento</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/industrial.jpg" alt="Taller">
+      <h4>Industrial</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/pintura.jpg" alt="Taller">
+      <h4>Pintura y Acabados</h4>
+    </div>
+    <div class="categoria">
+      <img src="imagenes/uso tecnico.jpg" alt="Taller">
+      <h4>Uso técnico</h4>
+    </div>
+  </div>
+
+  <button class="flecha derecha" onclick="moverCarrusel(1)">&#10095;</button>
+</div>
+
+    <!-- aquí van tus tarjetas como ya tenías -->
+    <div class="grid-productos">
+      <a href="herramientas/martillos.html" class="producto">
+        <img src="imagenes/martillo.jpg" alt="Martillo" />
+        <h3>Martillos</h3>
+      </a>
+      <a href="herramientas/destornilladores.html" class="producto">
+        <img src="imagenes/destornillador.jpg" alt="Destornillador" />
+        <h3>Destornilladores</h3>
+      </a>
+      <a href="herramientas/taladros.html" class="producto">
+        <img src="imagenes/taladro.jpg" alt="Taladro" />
+        <h3>Taladros</h3>
+      </a>
+      <a href="herramientas/llaves.html" class="producto">
+        <img src="imagenes/llave.jpg" alt="Llave" />
+        <h3>Llaves</h3>
+      </a>
+      <a href="herramientas/sierras.html" class="producto">
+        <img src="imagenes/sierra.jpg" alt="Sierra" />
+        <h3>Sierras</h3>
+      </a>
+      <a href="herramientas/tenazas.html" class="producto">
+        <img src="imagenes/tenazas.jpg" alt="Tenazas" />
+        <h3>Tenazas</h3>
+     </a>
+        <a href="herramientas/alicates.html" class="producto">
+        <img src="imagenes/alicates.jpg" alt="Alicates" />
+        <h3>Alicates</h3>
+    </a>
+    <a href="herramientas/cinceles.html" class="producto">
+        <img src="imagenes/cincel.jpg" alt="Cinceles" />
+        <h3>Cinceles</h3>
+    </a>
+    <a href="herramientas/formones.html" class="producto">
+        <img src="imagenes/formon.jpg" alt="Formones" />
+        <h3>Formones</h3>
+    </a>
+    <a href="herramientas/amoladoras.html" class="producto">
+        <img src="imagenes/amoladora.jpg" alt="Amoladora" />
+        <h3>Amoladoras</h3>
+    </a>
+    </div>
+  </section>
+
+  <footer class="footer-animado">
+    <div class="fondo-letras" id="letras-footer"></div>
+    <p>&copy; 2025 Ferretería Central</p>
+    <p>ESTE ES UN NEGOCIO FICTICIO CON LA FINALIDAD </p>
+    <p>DE RESPALDAR MI SERVICIO EN PAGINAS WEB</p>
+    <p2>-Creado por: LesCharlie-</p2>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
