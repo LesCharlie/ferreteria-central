@@ -243,4 +243,7 @@ a.volver:hover {
   gap: 1.5rem;
 }
 
+.herramienta {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 

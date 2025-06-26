@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Herramientas Eléctricas | Ferretería Central</title>
+  <link rel="stylesheet" href="../estilos.css" />
+  <style>
+    .contenedor {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .buscador {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .buscador input {
+      padding: 0.6rem 1rem;
+      width: 80%;
+      max-width: 400px;
+      font-size: 1rem;
+      border: 2px solid #3498db;
+      border-radius: 8px;
+    }
+
+    .lista-herramientas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .herramienta {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .ocultar {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .herramienta img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .herramienta h4 {
+      margin-top: 0.8rem;
+      font-size: 1rem;
+    }
+
+    a.volver {
+      display: inline-block;
+      margin-top: 2.5rem;
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header-animado">
+    <img src="../imagenes/logo-ferreteria.png" alt="Logo" class="logo" />
+    <div class="fondo-letras"></div>
+  </header>
+
+  <div class="contenedor">
+    <h2>Herramientas Eléctricas</h2>
+
+    <div class="buscador">
+      <input type="text" id="buscar" placeholder="Buscar herramienta..." onkeyup="filtrarHerramientas()" />
+    </div>
+
+    <div class="lista-herramientas" id="listaHerramientas">
+      <div class="herramienta"><img src="../imagenes/taladro.jpg" alt="Taladro"><h4>Taladro</h4></div>
+      <div class="herramienta"><img src="../imagenes/amoladora.jpg" alt="Amoladora"><h4>Amoladora</h4></div>
+      <div class="herramienta"><img src="../imagenes/atornillador.jpg" alt="Atornillador"><h4>Atornillador</h4></div>
+      <div class="herramienta"><img src="../imagenes/sierra-electrica.jpg" alt="Sierra Eléctrica"><h4>Sierra Eléctrica</h4></div>
+      <div class="herramienta"><img src="../imagenes/pulidora.jpg" alt="Pulidora"><h4>Pulidora</h4></div>
+    </div>
+
+    <div style="text-align: center;">
+      <a class="volver" href="../index.html">&#8592; Volver al inicio</a>
+    </div>
+  </div>
+
+  <script>
+    function filtrarHerramientas() {
+      const entrada = document.getElementById("buscar").value.toLowerCase();
+      const herramientas = document.querySelectorAll("#listaHerramientas .herramienta");
+
+      let coincidencias = 0;
+
+     herramientas.forEach(herramienta => {
+      const texto = herramienta.textContent.toLowerCase();
+      if (texto.includes(entrada)) {
+        herramienta.style.display = "block";
+        coincidencias++;
+      } else {
+        herramienta.style.display = "none";
+      }
+    });
+
+    // Centrado: si hay una sola herramienta visible, centrar el contenedor
+    const contenedor = document.getElementById("listaHerramientas");
+    if (coincidencias === 1) {
+      contenedor.style.justifyContent = "center";
+    } else {
+      contenedor.style.justifyContent = "";
+    }
+    }
+  </script>
+
+</body>
+</html>
