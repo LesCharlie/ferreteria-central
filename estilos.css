@@ -209,4 +209,15 @@ footer p {
   filter: brightness(1.1);
 }
 
+a.volver {
+  display: inline-block;
+  margin-top: 3rem;
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+}
+
+a.volver:hover {
+  text-decoration: underline;
+}
 
