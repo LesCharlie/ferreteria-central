@@ -34,21 +34,22 @@ function moverCarrusel(direccion) {
   });
 }
 
-function filtrarHerramientas() {
-  const entrada = document.getElementById("buscar").value.toLowerCase();
-  const herramientas = document.querySelectorAll("#listaHerramientas .herramienta");
+  function filtrarHerramientas() {
+    const entrada = document.getElementById("buscar").value.toLowerCase();
+    const herramientas = document.querySelectorAll("#listaHerramientas .herramienta");
 
-  herramientas.forEach(herramienta => {
-    const texto = herramienta.textContent.toLowerCase();
-    if (texto.includes(entrada)) {
-      herramienta.style.visibility = "visible";
-      herramienta.style.opacity = "1";
-      herramienta.style.pointerEvents = "auto";
-    } else {
-      herramienta.style.visibility = "hidden";
-      herramienta.style.opacity = "0";
-      herramienta.style.pointerEvents = "none";
-    }
-  });
-}
+    let coincidencias = 0;
+
+    herramientas.forEach(herramienta => {
+      const texto = herramienta.textContent.toLowerCase();
+      if (texto.includes(entrada)) {
+        herramienta.classList.remove("ocultar");
+        coincidencias++;
+      } else {
+        herramienta.classList.add("ocultar");
+      }
+    });
+  }
+
+
 

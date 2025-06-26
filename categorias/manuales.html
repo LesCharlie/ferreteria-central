@@ -33,12 +33,13 @@
     }
 
     .lista-herramientas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
 
-    
+
 
     .herramienta {
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -53,7 +54,7 @@
 
     .herramienta img {
       width: 100%;
-      height: 160px;
+      height: 260px;
       object-fit: cover;
       border-radius: 8px;
     }
