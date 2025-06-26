@@ -38,13 +38,18 @@
       gap: 1.5rem;
     }
 
+    
+
     .herramienta {
-      text-align: center;
-      background: #fff;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.ocultar {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 
     .herramienta img {
       width: 100%;
@@ -84,16 +89,33 @@
   </div>
 
   <script>
-    function filtrarHerramientas() {
-      const entrada = document.getElementById("buscar").value.toLowerCase();
-      const herramientas = document.querySelectorAll("#listaHerramientas .herramienta");
+  function filtrarHerramientas() {
+    const entrada = document.getElementById("buscar").value.toLowerCase();
+    const herramientas = document.querySelectorAll("#listaHerramientas .herramienta");
 
-      herramientas.forEach(herramienta => {
-        const texto = herramienta.textContent.toLowerCase();
-        herramienta.style.display = texto.includes(entrada) ? "block" : "none";
-      });
+    let coincidencias = 0;
+
+    herramientas.forEach(herramienta => {
+      const texto = herramienta.textContent.toLowerCase();
+      if (texto.includes(entrada)) {
+        herramienta.style.display = "block";
+        coincidencias++;
+      } else {
+        herramienta.style.display = "none";
+      }
+    });
+
+    // Centrado: si hay una sola herramienta visible, centrar el contenedor
+    const contenedor = document.getElementById("listaHerramientas");
+    if (coincidencias === 1) {
+      contenedor.style.justifyContent = "center";
+    } else {
+      contenedor.style.justifyContent = "";
     }
-  </script>
+  }
+</script>
+
+
 <div style="text-align: center; margin-top: 3rem;">
   <a class="volver" href="../index.html">&#8592; Volver al inicio</a>
 </div>

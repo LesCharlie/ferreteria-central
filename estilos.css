@@ -221,3 +221,27 @@ a.volver:hover {
   text-decoration: underline;
 }
 
+.categoria {
+  text-decoration: none;
+  color: inherit;
+}
+
+.herramienta {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.ocultar {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.lista-herramientas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 1.5rem;
+}
+
+
+
