@@ -63,6 +63,28 @@
       margin-top: 0.8rem;
       font-size: 1rem;
     }
+    .herramienta {
+  display: block;
+  text-decoration: none;
+  color: inherit; /* Usa el color normal del texto */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  text-align: center;
+}
+
+    .herramienta:hover h4 {
+  color: #3498db; /* Color azul al pasar el mouse, opcional */
+  text-decoration: underline; /* Puedes quitar esto si no quieres subrayado */
+}
+
+a.volver {
+  display: inline-block;
+  margin-top: 2.5rem;
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
   </style>
 </head>
 <body>
@@ -80,13 +102,28 @@
     </div>
 
     <div class="lista-herramientas" id="listaHerramientas">
-      <div class="herramienta"><img src="../imagenes/martillo.jpg" alt="Martillo"><h4>Martillo</h4></div>
-      <div class="herramienta"><img src="../imagenes/destornillador.jpg" alt="Destornillador"><h4>Destornillador</h4></div>
-      <div class="herramienta"><img src="../imagenes/llave.jpg" alt="Llave"><h4>Llave Ajustable</h4></div>
-      <div class="herramienta"><img src="../imagenes/tenazas.jpg" alt="Tenaza"><h4>Tenaza</h4></div>
-      <div class="herramienta"><img src="../imagenes/formon.jpg" alt="Formón"><h4>Formón</h4></div>
-      <!-- Puedes agregar más herramientas aquí -->
-    </div>
+  <a href="../herramientas/martillos.html" class="herramienta">
+    <img src="../imagenes/martillo.jpg" alt="Martillo">
+    <h4>Martillo</h4>
+  </a>
+  <a href="../herramientas/destornillador.html" class="herramienta">
+    <img src="../imagenes/destornillador.jpg" alt="Destornillador">
+    <h4>Destornillador</h4>
+  </a>
+  <a href="../herramientas/llave.html" class="herramienta">
+    <img src="../imagenes/llave.jpg" alt="Llave Ajustable">
+    <h4>Llave Ajustable</h4>
+  </a>
+  <a href="../herramientas/tenaza.html" class="herramienta">
+    <img src="../imagenes/tenazas.jpg" alt="Tenaza">
+    <h4>Tenaza</h4>
+  </a>
+  <a href="../herramientas/formon.html" class="herramienta">
+    <img src="../imagenes/formon.jpg" alt="Formón">
+    <h4>Formón</h4>
+  </a>
+</div>
+
   </div>
 
   <script>
@@ -120,5 +157,6 @@
 <div style="text-align: center; margin-top: 3rem;">
   <a class="volver" href="../index.html">&#8592; Volver al inicio</a>
 </div>
+
 </body>
 </html>

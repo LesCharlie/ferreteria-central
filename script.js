@@ -52,54 +52,32 @@ function moverCarrusel(direccion) {
   }
 
   const contenedor = document.getElementById("contenedorCategorias");
-  let isDown = false;
-  let startX;
-  let scrollLeft;
 
-  // Para mouse
-  contenedor.addEventListener("mousedown", (e) => {
-    isDown = true;
-    contenedor.classList.add("active");
-    startX = e.pageX - contenedor.offsetLeft;
-    scrollLeft = contenedor.scrollLeft;
-  });
+  // Solo aplicar si es pantalla táctil
+  const esMovil = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-  contenedor.addEventListener("mouseleave", () => {
-    isDown = false;
-    contenedor.classList.remove("active");
-  });
+  if (esMovil) {
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
 
-  contenedor.addEventListener("mouseup", () => {
-    isDown = false;
-    contenedor.classList.remove("active");
-  });
+    contenedor.addEventListener("touchstart", (e) => {
+      isDragging = true;
+      startX = e.touches[0].pageX - contenedor.offsetLeft;
+      scrollLeft = contenedor.scrollLeft;
+    });
 
-  contenedor.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - contenedor.offsetLeft;
-    const walk = (x - startX) * 1.5; // Ajusta la velocidad aquí
-    contenedor.scrollLeft = scrollLeft - walk;
-  });
+    contenedor.addEventListener("touchend", () => {
+      isDragging = false;
+    });
 
-  // Para touch
-  contenedor.addEventListener("touchstart", (e) => {
-    isDown = true;
-    startX = e.touches[0].pageX - contenedor.offsetLeft;
-    scrollLeft = contenedor.scrollLeft;
-  });
-
-  contenedor.addEventListener("touchend", () => {
-    isDown = false;
-  });
-
-  contenedor.addEventListener("touchmove", (e) => {
-    if (!isDown) return;
-    const x = e.touches[0].pageX - contenedor.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    contenedor.scrollLeft = scrollLeft - walk;
-  });
-
+    contenedor.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX - contenedor.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      contenedor.scrollLeft = scrollLeft - walk;
+    });
+  }
 
 
 

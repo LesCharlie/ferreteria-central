@@ -247,3 +247,17 @@ a.volver:hover {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.contenedor-categorias {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.categoria {
+  scroll-snap-align: start;
+}
+
+
