@@ -197,7 +197,7 @@ footer p {
 }
 
 .carrusel .item img {
-  width: 100%;
+  width: 110%;
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease, filter 0.3s ease;
