@@ -51,5 +51,55 @@ function moverCarrusel(direccion) {
     });
   }
 
+  const contenedor = document.getElementById("contenedorCategorias");
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  // Para mouse
+  contenedor.addEventListener("mousedown", (e) => {
+    isDown = true;
+    contenedor.classList.add("active");
+    startX = e.pageX - contenedor.offsetLeft;
+    scrollLeft = contenedor.scrollLeft;
+  });
+
+  contenedor.addEventListener("mouseleave", () => {
+    isDown = false;
+    contenedor.classList.remove("active");
+  });
+
+  contenedor.addEventListener("mouseup", () => {
+    isDown = false;
+    contenedor.classList.remove("active");
+  });
+
+  contenedor.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - contenedor.offsetLeft;
+    const walk = (x - startX) * 1.5; // Ajusta la velocidad aquí
+    contenedor.scrollLeft = scrollLeft - walk;
+  });
+
+  // Para touch
+  contenedor.addEventListener("touchstart", (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - contenedor.offsetLeft;
+    scrollLeft = contenedor.scrollLeft;
+  });
+
+  contenedor.addEventListener("touchend", () => {
+    isDown = false;
+  });
+
+  contenedor.addEventListener("touchmove", (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - contenedor.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    contenedor.scrollLeft = scrollLeft - walk;
+  });
+
+
 
 
