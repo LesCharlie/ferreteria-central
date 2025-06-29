@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Herramientas Eléctricas | Ferretería Central</title>
+  <title>Herramientas Electricas | Ferretería Central</title>
   <link rel="stylesheet" href="../estilos.css" />
   <style>
     .contenedor {
@@ -33,21 +33,24 @@
     }
 
     .lista-herramientas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      justify-items: center;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+
 
     .herramienta {
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
-    .ocultar {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
+.ocultar {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 
     .herramienta img {
       width: 100%;
@@ -60,14 +63,28 @@
       margin-top: 0.8rem;
       font-size: 1rem;
     }
+    .herramienta {
+  display: block;
+  text-decoration: none;
+  color: inherit; /* Usa el color normal del texto */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  text-align: center;
+}
 
-    a.volver {
-      display: inline-block;
-      margin-top: 2.5rem;
-      text-decoration: none;
-      color: #3498db;
-      font-weight: bold;
-    }
+    .herramienta:hover h4 {
+  color: #3498db; /* Color azul al pasar el mouse, opcional */
+  text-decoration: underline; /* Puedes quitar esto si no quieres subrayado */
+}
+
+a.volver {
+  display: inline-block;
+  margin-top: 2.5rem;
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
   </style>
 </head>
 <body>
@@ -78,33 +95,45 @@
   </header>
 
   <div class="contenedor">
-    <h2>Herramientas Eléctricas</h2>
+    <h2>Herramientas Electricas</h2>
 
     <div class="buscador">
       <input type="text" id="buscar" placeholder="Buscar herramienta..." onkeyup="filtrarHerramientas()" />
     </div>
 
     <div class="lista-herramientas" id="listaHerramientas">
-      <div class="herramienta"><img src="../imagenes/taladro.jpg" alt="Taladro"><h4>Taladro</h4></div>
-      <div class="herramienta"><img src="../imagenes/amoladora.jpg" alt="Amoladora"><h4>Amoladora</h4></div>
-      <div class="herramienta"><img src="../imagenes/atornillador.jpg" alt="Atornillador"><h4>Atornillador</h4></div>
-      <div class="herramienta"><img src="../imagenes/sierra-electrica.jpg" alt="Sierra Eléctrica"><h4>Sierra Eléctrica</h4></div>
-      <div class="herramienta"><img src="../imagenes/pulidora.jpg" alt="Pulidora"><h4>Pulidora</h4></div>
-    </div>
+  <a href="../herramientas/amoladoras.html" class="herramienta">
+    <img src="../imagenes/amoladora.jpg" alt="Amoladora">
+    <h4>Amoladora</h4>
+  </a>
+  <a href="../herramientas/destornilladores.html" class="herramienta">
+    <img src="../imagenes/destornillador.jpg" alt="Destornillador">
+    <h4>Destornillador</h4>
+  </a>
+  <a href="../herramientas/llaves.html" class="herramienta">
+    <img src="../imagenes/llave.jpg" alt="Llave Ajustable">
+    <h4>Llave Ajustable</h4>
+  </a>
+  <a href="../herramientas/tenazas.html" class="herramienta">
+    <img src="../imagenes/tenazas.jpg" alt="Tenaza">
+    <h4>Tenaza</h4>
+  </a>
+  <a href="../herramientas/formones.html" class="herramienta">
+    <img src="../imagenes/formon.jpg" alt="Formón">
+    <h4>Formón</h4>
+  </a>
+</div>
 
-    <div style="text-align: center;">
-      <a class="volver" href="../index.html">&#8592; Volver al inicio</a>
-    </div>
   </div>
 
   <script>
-    function filtrarHerramientas() {
-      const entrada = document.getElementById("buscar").value.toLowerCase();
-      const herramientas = document.querySelectorAll("#listaHerramientas .herramienta");
+  function filtrarHerramientas() {
+    const entrada = document.getElementById("buscar").value.toLowerCase();
+    const herramientas = document.querySelectorAll("#listaHerramientas .herramienta");
 
-      let coincidencias = 0;
+    let coincidencias = 0;
 
-     herramientas.forEach(herramienta => {
+    herramientas.forEach(herramienta => {
       const texto = herramienta.textContent.toLowerCase();
       if (texto.includes(entrada)) {
         herramienta.style.display = "block";
@@ -121,8 +150,13 @@
     } else {
       contenedor.style.justifyContent = "";
     }
-    }
-  </script>
+  }
+</script>
+
+
+<div style="text-align: center; margin-top: 3rem;">
+  <a class="volver" href="../index.html">&#8592; Volver al inicio</a>
+</div>
 
 </body>
 </html>
