@@ -294,6 +294,50 @@ a.volver:hover {
   margin: 0 auto;      /* centra la tarjeta dentro de la celda */
 }
 
+.contacto {
+  background-color: #f8f9fa;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.contacto h2 {
+  font-size: 2rem;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.contacto p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebd5a;
+}
+
+.ubicacion h3 {
+  margin-top: 2rem;
+  color: #3498db;
+  font-size: 1.3rem;
+}
+
+.ubicacion p {
+  margin-bottom: 1rem;
+}
+
+
 
 
 
