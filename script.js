@@ -79,5 +79,26 @@ function moverCarrusel(direccion) {
     });
   }
 
+function filtrarHerramientasGlobal(){
+  const entrada   = document.getElementById('busquedaGlobal').value.toLowerCase();
+  const tarjetas  = document.querySelectorAll('.grid-productos .producto');
+
+  let visibles = 0;
+  tarjetas.forEach(card=>{
+    const texto = card.textContent.toLowerCase();
+    if(texto.includes(entrada)){
+      card.style.display='block';
+      visibles++;
+    }else{
+      card.style.display='none';
+    }
+  });
+
+  /* centra si queda solo una tarjeta visible */
+  const grid = document.querySelector('.grid-productos');
+  grid.style.justifyContent = (visibles===1)?'center':'';
+}
+
+
 
 

@@ -273,5 +273,28 @@ a.volver:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+.busqueda-general{
+  margin: 2.5rem auto;
+  text-align: center;
+}
+
+.busqueda-general input{
+  padding: .6rem 1rem;
+  width: 80%;
+  max-width: 500px;
+  font-size: 1rem;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+}
+
+/* ancho fijo para cualquier tarjeta de herramienta */
+.grid-productos .producto{
+  width: 200px;        /* ajusta a tu gusto (180‑220 px) */
+  max-width: 100%;     /* evita que se estire si el grid cede más espacio */
+  margin: 0 auto;      /* centra la tarjeta dentro de la celda */
+}
+
+
+
 
 

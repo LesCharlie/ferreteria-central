@@ -17,6 +17,8 @@
 
   <section id="herramientas" class="productos">
     <h2>Tipos de Herramientas</h2>
+</div>
+
     <div class="carrusel-categorias">
   <button class="flecha izquierda" onclick="moverCarrusel(-1)">&#10094;</button>
 
@@ -81,6 +83,14 @@
 
 
   <button class="flecha derecha" onclick="moverCarrusel(1)">&#10095;</button>
+</div>
+
+<div class="busqueda-general">
+  <input
+    type="text"
+    id="busquedaGlobal"
+    placeholder="Buscar herramienta disponible..."
+    onkeyup="filtrarHerramientasGlobal()" />
 </div>
 
     <!-- aquí van tus tarjetas como ya tenías -->
