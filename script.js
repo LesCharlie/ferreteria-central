@@ -74,7 +74,7 @@ function moverCarrusel(direccion) {
     contenedor.addEventListener("touchmove", (e) => {
       if (!isDragging) return;
       const x = e.touches[0].pageX - contenedor.offsetLeft;
-      const walk = (x - startX) * 1.5;
+      const walk = x - startX;
       contenedor.scrollLeft = scrollLeft - walk;
     });
   }
@@ -98,7 +98,3 @@ function filtrarHerramientasGlobal(){
   const grid = document.querySelector('.grid-productos');
   grid.style.justifyContent = (visibles===1)?'center':'';
 }
-
-
-
-
