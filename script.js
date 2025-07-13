@@ -53,31 +53,44 @@ function moverCarrusel(direccion) {
 
   const contenedor = document.getElementById("contenedorCategorias");
 
-  // Solo aplicar si es pantalla táctil
-  const esMovil = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  // ========= DESLIZAMIENTO EN MÓVIL (corrige saltos) =========
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  const contenedor = document.getElementById("contenedorCategorias");
+  const tarjeta    = contenedor.querySelector(".categoria");
+  const anchoElem  = tarjeta.offsetWidth + 16; // ‑ gap
 
-  if (esMovil) {
-    let isDragging = false;
-    let startX;
-    let scrollLeft;
+  let isDown   = false;
+  let startX   = 0;
+  let scrollIni= 0;
 
-    contenedor.addEventListener("touchstart", (e) => {
-      isDragging = true;
-      startX = e.touches[0].pageX - contenedor.offsetLeft;
-      scrollLeft = contenedor.scrollLeft;
-    });
+  contenedor.addEventListener("touchstart", (e)=>{
+    isDown    = true;
+    startX    = e.touches[0].pageX;
+    scrollIni = contenedor.scrollLeft;
+  });
 
-    contenedor.addEventListener("touchend", () => {
-      isDragging = false;
-    });
+  contenedor.addEventListener("touchmove", (e)=>{
+    if(!isDown) return;
+    const x     = e.touches[0].pageX;
+    const walk  = (x - startX) * 0.4;   // 0 .4 → más suave
+    contenedor.scrollLeft = scrollIni - walk;
+  });
 
-    contenedor.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      const x = e.touches[0].pageX - contenedor.offsetLeft;
-      const walk = x - startX;
-      contenedor.scrollLeft = scrollLeft - walk;
-    });
+  contenedor.addEventListener("touchend", snapAlMasCercano);
+  contenedor.addEventListener("touchcancel", snapAlMasCercano);
+
+  function snapAlMasCercano(){
+    if(!isDown) return;
+    isDown = false;
+
+    // índice de tarjeta más cercana
+    const indice = Math.round(contenedor.scrollLeft / anchoElem);
+    const destino = indice * anchoElem;
+
+    contenedor.scrollTo({ left: destino, behavior: "smooth" });
   }
+}
+
 
 function filtrarHerramientasGlobal(){
   const entrada   = document.getElementById('busquedaGlobal').value.toLowerCase();

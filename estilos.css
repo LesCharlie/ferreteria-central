@@ -337,6 +337,15 @@ a.volver:hover {
   margin-bottom: 1rem;
 }
 
+.contenedor-categorias{
+  display:flex;
+  gap:1rem;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+
+
 
 
 
