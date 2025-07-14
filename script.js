@@ -29,7 +29,7 @@ function moverCarrusel(direccion) {
   const contenedor = document.getElementById("contenedorCategorias");
   const anchoElemento = contenedor.querySelector(".categoria").offsetWidth + 16; // incluye gap
   contenedor.scrollBy({
-    left: direccion * anchoElemento * 2, // mueve 2 tarjetas por clic
+    left: direccion * anchoElemento, // mueve 2 tarjetas por clic
     behavior: "smooth"
   });
 }
