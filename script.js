@@ -51,45 +51,44 @@ function moverCarrusel(direccion) {
     });
   }
 
+  document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("contenedorCategorias");
 
-  // ========= DESLIZAMIENTO EN MÓVIL (corrige saltos) =========
-if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-  const contenedor = document.getElementById("contenedorCategorias");
-  const tarjeta    = contenedor.querySelector(".categoria");
-  const anchoElem  = tarjeta.offsetWidth + 16; // ‑ gap
+  // ========== DESLIZAMIENTO EN MÓVIL ==========
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    const tarjeta = contenedor.querySelector(".categoria");
+    if (!tarjeta) return; // seguridad
 
-  let isDown   = false;
-  let startX   = 0;
-  let scrollIni= 0;
+    const anchoElem = tarjeta.offsetWidth + 16;
+    let isDown = false;
+    let startX = 0;
+    let scrollIni = 0;
 
-  contenedor.addEventListener("touchstart", (e)=>{
-    isDown    = true;
-    startX    = e.touches[0].pageX;
-    scrollIni = contenedor.scrollLeft;
-  });
+    contenedor.addEventListener("touchstart", (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX;
+      scrollIni = contenedor.scrollLeft;
+    });
 
-  contenedor.addEventListener("touchmove", (e)=>{
-    if(!isDown) return;
-    const x     = e.touches[0].pageX;
-    const walk  = (x - startX) * 0.4;   // 0 .4 → más suave
-    contenedor.scrollLeft = scrollIni - walk;
-  });
+    contenedor.addEventListener("touchmove", (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX;
+      const walk = (x - startX) * 0.4; // controla la velocidad
+      contenedor.scrollLeft = scrollIni - walk;
+    });
 
-  contenedor.addEventListener("touchend", snapAlMasCercano);
-  contenedor.addEventListener("touchcancel", snapAlMasCercano);
+    contenedor.addEventListener("touchend", snapAlMasCercano);
+    contenedor.addEventListener("touchcancel", snapAlMasCercano);
 
-  function snapAlMasCercano(){
-    if(!isDown) return;
-    isDown = false;
-
-    // índice de tarjeta más cercana
-    const indice = Math.round(contenedor.scrollLeft / anchoElem);
-    const destino = indice * anchoElem;
-
-    contenedor.scrollTo({ left: destino, behavior: "smooth" });
+    function snapAlMasCercano() {
+      if (!isDown) return;
+      isDown = false;
+      const indice = Math.round(contenedor.scrollLeft / anchoElem);
+      const destino = indice * anchoElem;
+      contenedor.scrollTo({ left: destino, behavior: "smooth" });
+    }
   }
-}
+});
 
 
 function filtrarHerramientasGlobal(){
