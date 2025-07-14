@@ -345,6 +345,22 @@ a.volver:hover {
   -webkit-overflow-scrolling:touch;
 }
 
+/* Scrollbar para navegadores basados en WebKit (Chrome, Safari, Opera) */
+.contenedor-categorias::-webkit-scrollbar {
+  height: 20px; /* AUMENTA el grosor de la barra */
+}
+
+.contenedor-categorias::-webkit-scrollbar-thumb {
+  background-color: #3498db;
+  border-radius: 10px;
+}
+
+.contenedor-categorias::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+
+
 
 
 
